@@ -5,12 +5,13 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "devStart": "nodemon app.js"
+    "dev-start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "ejs": "^2.6.2",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
