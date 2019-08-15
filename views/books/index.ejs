@@ -1,11 +1,26 @@
 <h2>Find Book</h2>
 <form action="/books" method="get">
-<label for="">Name</label>
-<input type="text" name="name" id="" value="<%= searchCondition.name %>">
+<div>
+    <label for="">Title</label>
+    <input type="text" name="title" id="title" value="<%= searchCondition.title %>">
+</div>
+<div>
+    <label for="">Published Before</label>
+    <input type="date" name="publishedBefore" id="before" value="<%= searchCondition.publishedBefore %>">
+</div>
+<div>
+<label for="published">Publish After</label>
+<input type="date" name="publishedAfter" id="after"
+    value="<%= searchCondition.publishedAfter %>">
+<div>
 <button type="submit">Find</button>
 </form>
 
 <br>
-<% books.forEach( book => { %>
-    <div><%= book.title %></div>
-<% }) %>
+    <% books.forEach( book => { %>
+<div>
+        <h3><%= book.title %></h3>
+        <p>Published: <%= book.published %></p>
+    <img src="<%= book.coverImagePath %>" height="150" width="100" alt="<%= book.title %>" >
+</div>
+    <% }) %>

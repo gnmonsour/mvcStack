@@ -20,15 +20,24 @@ const upload = multer({
 // all books
 router.get('/', async (req, res) => {
     // searchCriteria
-    const searchCondition = {};
+    let query = Book.find();
+
     console.log(req.query);
     if (req.query.title != null && req.query.title !== '') {
         console.log('get / valid title');
-        searchCondition.title = new RegExp(req.query.title, 'i');
+        query = query.regex('title', new RegExp(req.query.title, 'i'));
     }
+    if (req.query.publishedBefore != null && req.query.publishedBefore !== '') {
+        console.log('get / valid before');
+        query = query.lte('published', req.query.publishedBefore);
+    }
+    if (req.query.publishedAfter != null && req.query.publishedAfter !== '') {
+        console.log('get / valid after');
+        query = query.gt('published', req.query.publishedAfter);
+    }
+
     try {
-        console.log('get / try', JSON.stringify(searchCondition));
-        const books = await Book.find(searchCondition);
+        const books = await query.exec();
         res.render('books/index', {
             books,
             searchCondition: req.query
@@ -38,6 +47,7 @@ router.get('/', async (req, res) => {
         res.redirect('/books');
     }
 });
+
 
 // form for new book
 router.get('/new', async (req, res) => {
@@ -68,7 +78,7 @@ router.post('/', upload.single('cover'), async (req, res) => {
         console.log('book skope?', book);
         if (book.coverImageName != null) {
             // assume a file was created
-            // removeBookCover(book.coverImageName);
+            removeBookCover(book.coverImageName);
         }
         renderNewPage(res, book, true);
     }
