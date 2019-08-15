@@ -19,10 +19,10 @@ const upload = multer({
 
 // all books
 router.get('/', async (req, res) => {
-    // searchCriteria
+    // build search criteria
     let query = Book.find();
 
-    console.log(req.query);
+    console.log('search values:', req.query);
     if (req.query.title != null && req.query.title !== '') {
         console.log('get / valid title');
         query = query.regex('title', new RegExp(req.query.title, 'i'));
@@ -33,7 +33,7 @@ router.get('/', async (req, res) => {
     }
     if (req.query.publishedAfter != null && req.query.publishedAfter !== '') {
         console.log('get / valid after');
-        query = query.gt('published', req.query.publishedAfter);
+        query = query.gte('published', req.query.publishedAfter);
     }
 
     try {

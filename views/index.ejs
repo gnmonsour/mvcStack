@@ -1,1 +1,12 @@
     <h3>I N D E X</h3>
+
+
+    <div id="display-cards">
+        <% books.forEach( book => { %>
+        <div>
+            <h3><%= book.title %></h3>
+            <p>Published: <%= book.published %></p>
+            <img src="<%= book.coverImagePath %>" height="150" width="100" alt="<%= book.title %>" >
+            </div>
+        <% }) %>
+    </div>
