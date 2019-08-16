@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
-// const multer = require('multer');
-// const path = require('path');
-// const fs = require('fs');
+
 const Book = require('../models/book');
 const Author = require('../models/author');
 
@@ -63,16 +61,10 @@ router.post('/', async (req, res) => {
         console.log('new instance, pre save', book);
         const candidate = await book.save();
         console.log('candidate', candidate);
-        // res.redirect(`books/${candidate.id}`);
-        // const books = await Book.find({});
+
         res.redirect('books/');
     } catch (error) {
 
-        // console.log('book skope?', book);
-        // if (book.coverImageName != null) {
-        //     // assume a file was created
-        //     removeBookCover(book.coverImageName);
-        // }
         renderNewPage(res, book, true);
     }
 });
