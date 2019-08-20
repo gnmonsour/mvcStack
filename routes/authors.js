@@ -40,7 +40,6 @@ router.get('/:id', async (req, res) => {
         });
     } catch (error) {
         res.redirect('/authors');
-
     }
 });
 
@@ -69,7 +68,7 @@ router.delete('/:id', async (req, res) => {
         }
         res.redirect(`/authors/${author.id }`);
     }
-})
+});
 
 router.put('/:id', async (req, res) => {
     // res.send('Update Author Card' + req.params.id);

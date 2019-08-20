@@ -58,14 +58,87 @@ router.post('/', async (req, res) => {
 
     try {
         saveCover(book, req.body.cover);
-        console.log('new instance, pre save', book);
+        // console.log('new instance, pre save', book);
         const candidate = await book.save();
-        console.log('candidate', candidate);
+        // console.log('candidate', candidate);
 
         res.redirect('books/');
     } catch (error) {
 
         renderNewPage(res, book, true);
+    }
+});
+
+router.put('/:id', async (req, res) => {
+    // res.send('Update Author Card' + req.params.id);
+    let book;
+    // console.log('book put');
+    try {
+        book = await Book.findById(req.params.id);
+        book.title = req.body.title;
+        book.author = req.body.author;
+        book.published = new Date(req.body.published);
+        book.pageCount = req.body.pagecount;
+        book.description = req.body.description;
+
+        // This is a little odd to me,
+        // it may be better to check for equality,
+        // need to research where the endoding changes
+        if (req.body.cover != null && req.body.cover !== '') {
+            saveCover(book, req.body.cover);
+        }
+
+        await book.save();
+
+        res.redirect(`/books/${book.id}`);
+    } catch (error) {
+        if (book == null) {
+            return res.redirect('/');
+        }
+        // res.render('books/edit', {
+        //     author: book,
+        //     errorMessage: 'E R R O R /updating/book'
+        // });
+        renderEditPage(res, book, true);
+    }
+});
+router.get('/:id', async (req, res) => {
+    try {
+        const book = await Book.findById(req.params.id).populate('author').exec();
+        // console.log('book', book);
+        res.render('books/showCard', {
+            book
+        });
+    } catch (error) {
+        res.redirect('/books');
+    }
+});
+router.get('/:id/edit', async (req, res) => {
+    try {
+        const book = await Book.findById(req.params.id);
+        const authors = await Author.find({});
+        // console.log('book', book);
+        res.render('books/edit', {
+            book,
+            authors
+        });
+    } catch (error) {
+        res.redirect('/books');
+    }
+});
+
+
+router.delete('/:id', async (req, res) => {
+    let book;
+    try {
+        book = await Book.findById(req.params.id);
+        await book.remove();
+        res.redirect('/books');
+    } catch (error) {
+        if (book == null) {
+            return res.status(400).render('books/not_found');
+        }
+        res.redirect(`/books/${book.id }`);
     }
 });
 
@@ -78,18 +151,26 @@ function saveCover(book, coverEncoded) {
     }
 }
 
-async function renderNewPage(res, book, hasError = false) {
+async function renderFormPage(res, book, form, hasError = false) {
     try {
         const authors = await Author.find({});
         const params = {
             authors: authors,
             book: book
         };
-        if (hasError) params.errorMessage = 'E R R O R /creating/book';
-        res.render('books/new', params);
+
+        if (hasError) params.errorMessage = 'E R R O R / ' + form + '/book';
+        res.render('books/${form}', params);
     } catch (error) {
         res.redirect('/books');
     }
+}
+async function renderNewPage(res, book, hasError = false) {
+    renderFormPage(res, book, 'new', hasError);
+}
+
+async function renderEditPage(res, book, hasError = false) {
+    renderFormPage(res, book, 'edit', hasError);
 }
 
 
