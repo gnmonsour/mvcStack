@@ -6,7 +6,9 @@
 
      <% author.bookList.forEach( book => { %>
     <div>
+    <a href="/books/<%=book.id%>">
     <img src="<%= book.coverImagePath %>" height="150" width="100" alt="<%= book.title %>" >
+    </a>
         <p><%= book.title %></p>
         <p>Published: <%= book.published %></p>
     </div>

@@ -6,7 +6,9 @@
         <div>
             <h3><%= book.title %></h3>
             <p>Published: <%= book.published %></p>
+            <a href="/books/<%= book.id %>"></a>
             <img src="<%= book.coverImagePath %>" height="150" width="100" alt="<%= book.title %>" >
+            </a>
             </div>
         <% }) %>
     </div>

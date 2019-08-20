@@ -12,17 +12,17 @@ router.get('/', async (req, res) => {
     // build search criteria
     let query = Book.find();
 
-    console.log('search values:', req.query);
+    // console.log('search values:', req.query);
     if (req.query.title != null && req.query.title !== '') {
-        console.log('get / valid title');
+        // console.log('get / valid title');
         query = query.regex('title', new RegExp(req.query.title, 'i'));
     }
     if (req.query.publishedBefore != null && req.query.publishedBefore !== '') {
-        console.log('get / valid before');
+        // console.log('get / valid before');
         query = query.lte('published', req.query.publishedBefore);
     }
     if (req.query.publishedAfter != null && req.query.publishedAfter !== '') {
-        console.log('get / valid after');
+        // console.log('get / valid after');
         query = query.gte('published', req.query.publishedAfter);
     }
 
@@ -160,7 +160,7 @@ async function renderFormPage(res, book, form, hasError = false) {
         };
 
         if (hasError) params.errorMessage = 'E R R O R / ' + form + '/book';
-        res.render('books/${form}', params);
+        res.render(`books/${form}`, params);
     } catch (error) {
         res.redirect('/books');
     }
