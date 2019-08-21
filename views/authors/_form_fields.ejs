@@ -1,2 +1,8 @@
-<label for="name">Name</label>
-<input type="text" name="name" id="name" value="<%= author.name %>">
+<label for="name">Author Name</label>
+<% if (author != undefined && author != '' ) {%>
+
+<input type="text" name="name" id="name" value="<%=author.name%>">
+<% }else {%>
+
+<input type="text" name="name" id="name" value="">
+<% } %>
