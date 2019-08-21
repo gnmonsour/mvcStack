@@ -17,10 +17,10 @@
 </form>
 
 <br>
-    <% books.forEach( book => { %>
 <div>
+    <% books.forEach( book => { %>
         <h3><%= book.title %></h3>
-        <p>Published: <%= book.published %></p>
+        <p>Published: <%= book.published.toDateString() %></p>
         <p>Page Count: <%= book.pageCount %></p>
         <a href="/books/<%=book.id%>">View</a>
         <a href="/books/<%=book.id%>/edit">Edit</a>
@@ -28,5 +28,5 @@
         <a href="/books/<%=book.id%>">
     <img src="<%= book.coverImagePath %>" height="150" width="100" alt="<%= book.title %>" >
     </a>
-</div>
     <% }) %>
+</div>

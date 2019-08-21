@@ -136,9 +136,9 @@ router.delete('/:id', async (req, res) => {
         res.redirect('/books');
     } catch (error) {
         if (book == null) {
-            return res.status(400).render('books/not_found');
+            return res.redirect('/');
         }
-        res.redirect(`/books/${book.id }`);
+        res.render(`/books/${book.id }`);
     }
 });
 
@@ -159,7 +159,7 @@ async function renderFormPage(res, book, form, hasError = false) {
             book: book
         };
 
-        if (hasError) params.errorMessage = 'E R R O R / ' + form + '/book';
+        if (hasError) params.errorMessage = 'E R R O R / ' + form + ' / book';
         res.render(`books/${form}`, params);
     } catch (error) {
         res.redirect('/books');

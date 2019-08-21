@@ -5,8 +5,9 @@
         <% books.forEach( book => { %>
         <div>
             <h3><%= book.title %></h3>
-            <p>Published: <%= book.published %></p>
-            <a href="/books/<%= book.id %>"></a>
+            <p>Published: <%= book.published.toDateString() %></p>
+            <a href="/books/<%= book.id %>">
+
             <img src="<%= book.coverImagePath %>" height="150" width="100" alt="<%= book.title %>" >
             </a>
             </div>
