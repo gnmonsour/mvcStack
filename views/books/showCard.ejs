@@ -1,8 +1,8 @@
-<h2><%= book.title %></h2>
-<img src="<%= book.coverImagePath %>" height="150" width="100" alt="<%= book.title %>" >
+<h2 class="page-header"><%= book.title %></h2>
+<img src="<%= book.coverImagePath %>" height="150" width="100" alt="<%= book.title %>">
 <p class="author">
     author: <a href="/authors/<%=book.author.id%>">
-    <%=book.author.name%></a>
+        <%=book.author.name%></a>
 </p>
 <p class="published">
     published: <%= book.published.toDateString() %></p>

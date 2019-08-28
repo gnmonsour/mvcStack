@@ -1,32 +1,48 @@
-<h2>Find Book</h2>
+<h2 class="page-header">Find Book</h2>
 <form action="/books" method="get">
-<div>
-    <label for="">Title</label>
-    <input type="text" name="title" id="title" value="<%= searchCondition.title %>">
-</div>
-<div>
-    <label for="">Published Before</label>
-    <input type="date" name="publishedBefore" id="before" value="<%= searchCondition.publishedBefore %>">
-</div>
-<div>
-<label for="published">Publish After</label>
-<input type="date" name="publishedAfter" id="after"
-    value="<%= searchCondition.publishedAfter %>">
-<div>
-<button type="submit">Find</button>
+    <div class="form-row">
+        <div class="form-item">
+            <div>
+                <label for="">Title</label>
+                <input type="text" name="title" id="title" value="<%= searchCondition.title %>">
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-item">
+
+            <div>
+                <label for="">Published Before</label>
+                <input type="date" name="publishedBefore" id="before" value="<%= searchCondition.publishedBefore %>">
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-item">
+
+            <div>
+                <label for="published">Publish After</label>
+                <input type="date" name="publishedAfter" id="after" value="<%= searchCondition.publishedAfter %>">
+            </div>
+        </div>
+    </div>
+    <div class="form-row form-row-end">
+
+        <button class="btn btn-primary" type="submit">Find</button>
+    </div>
 </form>
 
 <br>
 <div>
     <% books.forEach( book => { %>
-        <h3><%= book.title %></h3>
-        <p>Published: <%= book.published.toDateString() %></p>
-        <p>Page Count: <%= book.pageCount %></p>
-        <a href="/books/<%=book.id%>">View</a>
-        <a href="/books/<%=book.id%>/edit">Edit</a>
-        <%- include("../partials/deleteForm.ejs", {url: `/books/${book.id}`}) %>
-        <a href="/books/<%=book.id%>">
-            <img src="<%= book.coverImagePath %>" height="150" width="100" alt="<%= book.title %>" >
-        </a>
+    <h3><%= book.title %></h3>
+    <p>Published: <%= book.published.toDateString() %></p>
+    <p>Page Count: <%= book.pageCount %></p>
+    <a href="/books/<%=book.id%>">View</a>
+    <a href="/books/<%=book.id%>/edit">Edit</a>
+    <%- include("../partials/deleteForm.ejs", {url: `/books/${book.id}`}) %>
+    <a href="/books/<%=book.id%>">
+        <img src="<%= book.coverImagePath %>" height="150" width="100" alt="<%= book.title %>">
+    </a>
     <% }) %>
 </div>

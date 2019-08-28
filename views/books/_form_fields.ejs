@@ -1,44 +1,45 @@
-<div>
-    <div>
+<div class="form-row">
+    <div class="form-item">
         <label for="title">Title</label>
         <input type="text" name="title" id="title" value="<%= book.title %>">
-       
+
     </div>
-    <div>
+    <div class="form-item">
         <label for="author">Author</label>
         <select name="author" id="author">
             <% authors.forEach(author => {%>
-                <% if (author.id === book.author) {%>
-                    <option label="<%=author.name%>" value="<%= author.id %>" selected><%=author.name%></option>
-                    <% }else{ %>
-                    <option label="<%=author.name%>" value="<%= author.id %>">
-                        <%=author.name%>
-                    </option>
+            <% if (author.id === book.author) {%>
+            <option label="<%=author.name%>" value="<%= author.id %>" selected><%=author.name%></option>
+            <% }else{ %>
+            <option label="<%=author.name%>" value="<%= author.id %>">
+                <%=author.name%>
+            </option>
             <% }}) %>
         </select>
-         </div>
+    </div>
 </div>
-<div>
+<div class="form-row">
 
-    <div>
+    <div class="form-item">
         <label for="description">Description</label>
         <textarea name="description" id="description"><%= book.description %></textarea>
     </div>
-    <div>
+    <div class="form-item">
         <label for="published">Publish Date</label>
         <input type="date" name="published" id="published"
             value="<%= book.published == null ? '' : book.published.toISOString().split('T')[0] %>">
     </div>
 
-    <div>
+    <div class="form-item">
         <label for="pagecount">Page Count</label>
-        <input type="number" min='1' name="pagecount" id="pagecount" value="<%= book.pageCount > 0 ? book.pageCount : 1 %>">
-        
+        <input type="number" min='1' name="pagecount" id="pagecount"
+            value="<%= book.pageCount > 0 ? book.pageCount : 1 %>">
+
     </div>
 </div>
 
-<div>
-    <div>
+<div class="form-row">
+    <div class="form-item">
         <label for="cover">Cover</label>
         <input type="file" name="cover" id='cover' class='filepond'>
     </div>
