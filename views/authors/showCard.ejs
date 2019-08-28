@@ -1,17 +1,20 @@
-<h2><%= author.name %></h2>
-<a href="/authors/<%=author.id%>/edit">Edit</a>
+<h2 class="page-header"><%= author.name %></h2>
+<div class="btn-row">
+    <a href="/authors/<%=author.id%>/edit" class="btn btn-primary">Edit</a>
+</div>
 
 <% if(author.bookList.length > 0) {%>
-    <H4>Book List</H4>
 
-     <% author.bookList.forEach( book => { %>
-    <div>
-    <a href="/books/<%=book.id%>">
-    <img src="<%= book.coverImagePath %>" height="150" width="100" alt="<%= book.title %>" >
-    </a>
-        <p><%= book.title %></p>
-        <p>Published: <%= book.published %></p>
-    </div>
+<H4 class="page-header">Book List</H4>
+
+<% author.bookList.forEach( book => { %>
+
+<a href="/books/<%=book.id%>">
+    <img src="<%= book.coverImagePath %>" height="150" width="100" alt="<%= book.title %>">
+</a>
+<p><%= book.title %></p>
+<p>Published: <%= book.published %></p>
+
 <%  }) }else {%>
 <%- include('../partials/deleteForm.ejs', {url: `/authors/${author.id}` } )%>
 <% } %>

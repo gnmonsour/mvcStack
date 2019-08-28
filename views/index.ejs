@@ -1,4 +1,4 @@
-    <h3>I N D E X</h3>
+    <h3 class='page-header'>I N D E X</h3>
 
 
     <div id="display-cards">
@@ -8,8 +8,8 @@
             <p>Published: <%= book.published.toDateString() %></p>
             <a href="/books/<%= book.id %>">
 
-            <img src="<%= book.coverImagePath %>" height="150" width="100" alt="<%= book.title %>" >
+                <img src="<%= book.coverImagePath %>" height="150" width="100" alt="<%= book.title %>">
             </a>
-            </div>
+        </div>
         <% }) %>
     </div>

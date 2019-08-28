@@ -1,0 +1,35 @@
+@import 'shared/variables.css';
+@import 'shared/header.css';
+@import 'shared/form.css';
+
+*::before,
+*::after {
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    background: linear-gradient(to left, var(--clr-background-dark), var(--clr-background-light));
+    color: var(--clr-text-light);
+    font-family: var(--fnt-body);
+    font-weight: 300;
+    font-size: 1.5rem;
+
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: 3rem;
+}
+
+.inner-container {
+    margin: 0 2rem;
+}
+
+.page-header {
+    font-size: 2rem;
+    font-weight: 500;
+}

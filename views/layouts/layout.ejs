@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
-    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+        rel="stylesheet">
 
+
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Work+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/main.css">
 
     <script defer src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
     <script defer src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
@@ -18,10 +24,16 @@
 
     <title>Library MVC</title>
 </head>
+
 <body>
-<%- include("../partials/header") %>
-<%- include("../partials/messageError") %>
-<%- body %>
+    <div class="container">
+        <%- include("../partials/header") %>
+        <div class="inner-container">
+            <%- include("../partials/messageError") %>
+            <%- body %>
+        </div>
+    </div>
 
 </body>
+
 </html>

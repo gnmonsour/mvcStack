@@ -1,8 +1,11 @@
-<label for="name">Author Name</label>
-<% if (author != undefined && author != '' ) {%>
-
-<input type="text" name="name" id="name" value="<%=author.name%>">
-<% }else {%>
-
-<input type="text" name="name" id="name" value="">
-<% } %>
+<div class="form-row">
+    <div class="form-item">
+        <label for="name">
+            <% if (author != undefined && author != '' ) {%>
+            <input type="text" name="name" id="name" value="<%=author.name%>">
+            <% }else {%>
+            <input type="text" name="name" id="name" value="">
+            <% } %>
+        </label>
+    </div>
+</div>
