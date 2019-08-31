@@ -2,8 +2,15 @@
     --clr-base-hue: 46;
     --clr-danger-hue-offset: 180;
     --clr-danger-hue: calc(var(--clr-base-hue) - var(--clr-danger-hue-offset));
+
+    --clr-counter-base-hue: 210;
     --clr-background-dark: hsl(var(--clr-base-hue), 100%, 32%);
     --clr-background-light: hsl(var(--clr-base-hue), 100%, 48%);
+    --clr-background-counter-dark: hsl(var(--clr-counter-base-hue), 100%, 64%);
+    --clr-background-counter-light: hsl(var(--clr-counter-base-hue), 100%, 96%);
+
+
+
     --clr-text-light: hsl(var(--clr-base-hue), 100%, 90%);
 
     --fnt-body: 'Work Sans', sans-serif;
