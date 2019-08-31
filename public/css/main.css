@@ -1,7 +1,9 @@
 @import 'shared/variables.css';
+@import 'shared/buttons.css';
 @import 'shared/header.css';
 @import 'shared/form.css';
 
+*,
 *::before,
 *::after {
     font-family: inherit;
@@ -27,6 +29,11 @@ body {
 
 .inner-container {
     margin: 0 2rem;
+}
+
+.start-author-grid {
+    background: linear-gradient(to right, var(--clr-background-dark), var(--clr-background-light));
+    height: .2rem;
 }
 
 .page-header {

@@ -2,8 +2,8 @@
 <%# <form action="/books" method="post"> %>
 <form action="/books/<%= book.id %>?_method=PUT" method="post">
     <div class="form-row form-row-end btn-row">
-        <a href="/books">Cancel</a>
-        <button type="submit">Update</button>
+        <a href="/books" class="btn btn-danger">Cancel</a>
+        <button type="submit" class="btn btn-primary">Update</button>
     </div>
     <%- include('./_form_fields') %>
 </form>
