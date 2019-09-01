@@ -1,9 +1,10 @@
 <h2 class="page-header"><%= author.name %></h2>
 
+<div class="gradient-bar">
+</div>
 <% if(author.bookList.length > 0) {%>
 
 <H4 class="page-header">Book List</H4>
-
 <% author.bookList.forEach( book => { %>
 
 <a href="/books/<%=book.id%>">
@@ -13,5 +14,10 @@
 <p>Published: <%= book.published %></p>
 
 <%  }) }else {%>
-<%- include('../partials/deleteForm.ejs', {url: `/authors/${author.id}` } )%>
+<div class="form-row">
+    <a href="/authors" class='btn btn-danger'>Cancel</a>
+    <%- include('../partials/deleteForm.ejs', {url: `/authors/${author.id}`, name: `${author.name}` } )%>
+</div>
+
+
 <% } %>

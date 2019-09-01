@@ -31,7 +31,7 @@ body {
     margin: 0 2rem;
 }
 
-.start-author-grid {
+.gradient-bar {
     background: linear-gradient(to right, var(--clr-background-counter-dark), var(--clr-background-counter-light));
     height: .2rem;
 }

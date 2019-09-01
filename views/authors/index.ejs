@@ -1,5 +1,12 @@
-<h2 class="page-header">Find Authors</h2>
+<h2 class="page-header">Find Author</h2>
+<div class="gradient-bar">
+</div>
+
 <form action="/authors" method="get">
+    <div class="form-row form-row-end">
+
+        <button type="submit" class="btn btn-primary">Find</button>
+    </div>
     <div class="form-row">
         <div class="form-item">
 
@@ -7,21 +14,15 @@
             <input type="text" name="name" id="" value="<%= searchCondition.name %>">
         </div>
     </div>
-    <div class="form-row form-row-end">
-
-        <button type="submit" class="btn btn-primary">Find</button>
-    </div>
 </form>
 
-<div class="start-author-grid">
-</div>
 
 <% authors.forEach( author => { %>
 <div><%= author.name %></div>
 <div class="btn-row">
     <a class="btn btn-primary" href="/authors/<%= author.id %>">View</a>
     <a class="btn btn-primary" href="/authors/<%= author.id %>/edit">Edit</a>
-    <%- include("../partials/deleteForm.ejs", { url :`/authors/${author.id}`}) %>
+    <%- include("../partials/deleteForm.ejs", { url :`/authors/${author.id}`, name: ''}) %>
 
 </div>
 <% }) %>
