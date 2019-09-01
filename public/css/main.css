@@ -37,6 +37,7 @@ body {
 }
 
 .page-header {
+    font-family: var(--fnt-breaks);
     font-size: 2rem;
     font-weight: 500;
 }

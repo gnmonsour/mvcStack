@@ -7,7 +7,7 @@
     --clr-btn-danger-background: hsl(var(--clr-danger-hue), 100%, 83%);
     --clr-btn-danger-background-dark: hsl(var(--clr-danger-hue), 100%, 73%);
     --clr-btn-danger-text: black;
-    --clr-btn-danger-text-dark: black;
+    --clr-btn-danger-text-dark: red;
 }
 
 .btn {
@@ -50,6 +50,7 @@
 }
 
 .btn-danger:hover {
-    color: var(--clr-btn-danger-text-dark);
-    background-color: var(--clr-btn-danger-background-dark);
+    background-color: var(--clr-btn-danger-text-dark);
+    color: var(--clr-btn-danger-background-dark);
+    /* font-weight: 800; */
 }
