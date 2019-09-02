@@ -4,48 +4,31 @@
 
     <div class="form-row">
         <div class="form-item">
-            <div>
-                <label for="">Title</label>
-                <input type="text" name="title" id="title" value="<%= searchCondition.title %>">
-            </div>
+            <label for="">Title</label>
+            <input type="text" name="title" id="title" value="<%= searchCondition.title %>">
         </div>
     </div>
     <div class="form-row">
         <div class="form-item">
-
-            <div>
-                <label for="">Published Before</label>
-                <input type="date" name="publishedBefore" id="before" value="<%= searchCondition.publishedBefore %>">
-            </div>
+            <label for="">Published Before</label>
+            <input type="date" name="publishedBefore" id="before" value="<%= searchCondition.publishedBefore %>">
         </div>
     </div>
     <div class="form-row">
         <div class="form-item">
-
-            <div>
-                <label for="published">Publish After</label>
-                <input type="date" name="publishedAfter" id="after" value="<%= searchCondition.publishedAfter %>">
-            </div>
+            <label for="published">Publish After</label>
+            <input type="date" name="publishedAfter" id="after" value="<%= searchCondition.publishedAfter %>">
         </div>
     </div>
     <div class="form-row form-row-end">
-
         <button class="btn btn-primary" type="submit">Find</button>
     </div>
-    <div class="gradient-bar">
-    </div>
+
 </form>
 
 <div>
     <% books.forEach( book => { %>
-    <h3><%= book.title %></h3>
-    <p>Published: <%= book.published.toDateString() %></p>
-    <p>Page Count: <%= book.pageCount %></p>
-    <div class="btn-row btn-row-end">
-        <a href="/books/<%=book.id%>" class="btn btn-primary">View</a>
-        <a href="/books/<%=book.id%>/edit" class="btn btn-danger">Edit</a>
-        <%- include("../partials/deleteForm.ejs", {url: `/books/${book.id}`, name: ''}) %>
-    </div>
+
     <a href="/books/<%=book.id%>">
         <img src="<%= book.coverImagePath %>" height="150" width="100" alt="<%= book.title %>">
     </a>

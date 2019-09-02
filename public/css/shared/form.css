@@ -1,7 +1,7 @@
 :root {
     --form-label-font-size: 1.2rem;
     --form-input-background-color: hsl(var(--clr-base-hue), 100%, 50%);
-    --form-input-border-color: hsl(var(--clr-base-hue), 100%, 50%);
+    --form-input-border-color: hsl(var(--clr-base-hue), 100%, 59%);
     --form-input-border-color-light: hsl(var(--clr-base-hue), 100%, 80%);
 }
 
@@ -16,6 +16,10 @@
     margin-left: 2rem;
     flex-grow: 1;
     flex-basis: 0;
+}
+
+.form-item-no-grow {
+    flex-grow: 0;
 }
 
 .form-item:first-child {
@@ -62,6 +66,11 @@
     border-color: var(--form-input-border-color-light);
 }
 
+.filepond--root {
+    font-family: var(--fnt-body);
+    margin-bottom: 0;
+}
+
 .filepond--panel-root {
     background-color: var(--form-input-background-color);
     border: 1px solid var(--form-input-border-color);
@@ -69,4 +78,5 @@
 
 .filepond--drop-label {
     color: var(--clr-text-light);
+    font-size: inherit;
 }

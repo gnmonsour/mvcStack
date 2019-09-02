@@ -1,14 +1,12 @@
 <div class="form-row">
     <div class="form-item">
-        <div>
 
-            <label for="name">Author
-            </label>
-            <% if (author != undefined && author != '' ) {%>
-            <input type="text" name="name" id="name" value="<%=author.name%>">
-            <% }else {%>
-            <input type="text" name="name" id="name" value="">
-            <% } %>
-        </div>
+        <label>Author
+        </label>
+        <% if (author != undefined && author != '' ) {%>
+        <input type="text" name="name" id="name" value="<%=author.name%>">
+        <% }else {%>
+        <input type="text" name="name" id="name" value="">
+        <% } %>
     </div>
 </div>
