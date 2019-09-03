@@ -2,6 +2,8 @@
 @import 'shared/buttons.css';
 @import 'shared/header.css';
 @import 'shared/form.css';
+@import 'shared/author.css';
+@import 'shared/books.css';
 
 *,
 *::before,
@@ -19,6 +21,10 @@ body {
     font-weight: 300;
     font-size: 1.5rem;
 
+}
+
+form {
+    margin-bottom: 2rem;
 }
 
 .container {
@@ -40,4 +46,9 @@ body {
     font-family: var(--fnt-breaks);
     font-size: 2rem;
     font-weight: 500;
+}
+
+.error-message {
+    color:
+        var(--clr-error-message);
 }

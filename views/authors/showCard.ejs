@@ -4,12 +4,10 @@
 <% if(author.bookList.length > 0) {%>
 
 <H4 class="page-header">Book List</H4>
-<% author.bookList.forEach( book => { %>
+<%- include('../partials/bookGrid.ejs', { books: author.bookList, large: false}) %>
 
-<a href="/books/<%=book.id%>">
-    <img src="<%= book.coverImagePath %>" height="150" width="100" alt="<%= book.title%>">
-</a>
-<%  }) }else {%>
+
+<%  }else {%>
 <div class="btn-row">
     <a href="/authors" class='btn btn-danger'>Cancel</a>
     <%- include('../partials/deleteForm.ejs', {url: `/authors/${author.id}`, name: `${author.name}` } )%>

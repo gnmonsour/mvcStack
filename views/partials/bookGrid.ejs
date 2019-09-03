@@ -1,0 +1,10 @@
+<% let bookCoverClass = large===true ? 'book-cover-large' : '' %>
+<% let bookGridClass = large===true ? 'book-grid-large' : '' %>
+
+<div class="book-grid <%= bookGridClass %>">
+    <% books.forEach( book => { %>
+    <a href="/books/<%= book.id %>">
+        <img src="<%= book.coverImagePath %>" class="book-cover <%=bookCoverClass%>" alt="<%= book.title %>">
+    </a>
+    <% }) %>
+</div>
