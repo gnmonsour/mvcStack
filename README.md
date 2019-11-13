@@ -2,6 +2,8 @@
 
 This is a study of implementing a full stack application in javascript with node, express, mongodb and mongoose.
 
+See a deployment at: https://full-stack-mvc.herokuapp.com/
+
 ### What you'll need
 For development mode add a .env file with a line assigning **DATABASE_URL** to a mongodb source (local or network).
 
