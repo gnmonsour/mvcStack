@@ -26,3 +26,7 @@ For production mode you should use a MongoDB Atlas connection string in your cho
 - Implement testing
 - Add authentication and authorization
 - stuff
+
+## License
+
+See the [LICENSE](LICENSE) file for license rights and limitations (MIT).
