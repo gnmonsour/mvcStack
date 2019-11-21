@@ -15,6 +15,8 @@ DATABASE_URL='mongodb://localhost/mvc-stack'
 
 For production mode you should use a MongoDB Atlas connection string in your chosen platform's configuration field.
 
+A good resource on installing MongoDB on Ubuntu is [linuxise](https://linuxize.com/post/how-to-install-mongodb-on-ubuntu-18-04/)
+
 ### Things I learned
 - I found the filepond plug-in really interesting to use.
 - The use of the `defer` directive in the script tag is really helpful in loading js libraries.
@@ -24,8 +26,13 @@ For production mode you should use a MongoDB Atlas connection string in your cho
 
 ### To Do
 - Implement testing
-- Add authentication and authorization
-- stuff
+- Add application access control
+- Understand MongoDB access control and add how-to this document
+- Use the 'Projects' tools of github going forward
+
+### Platforms
+- Windows 10
+- Ubuntu 18.04 (via VM)
 
 ## License
 
